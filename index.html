@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="BlockFolio.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockFolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1> Minecraft Elements Filter </h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Find blocks ">
+            <button id="reset-btn" class="reset-button"> Reset All</button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- القسم 1: العناصر المتبقية -->
+        <section class="column drop-zone" 
+                 ondragover="allowDrop(event)" 
+                 ondrop="drop(event, 'items')">
+            <h2> Items (<span id="count-items">0</span>)</h2>
+            <div id="items-grid" class="grid"></div>
+        </section>
+
+        <!-- القسم 2: قيد العمل -->
+        <section class="column drop-zone" 
+                 ondragover="allowDrop(event)" 
+                 ondrop="drop(event, 'working')">
+            <h2> In Progress (<span id="count-working">0</span>)</h2>
+            <div id="working-grid" class="grid"></div>
+        </section>
+
+        <!-- القسم 3: المنتهية -->
+        <section class="column drop-zone" 
+                 ondragover="allowDrop(event)" 
+                 ondrop="drop(event, 'done')">
+            <h2> Complete (<span id="count-done">0</span>)</h2>
+            <div id="done-grid" class="grid"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

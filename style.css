@@ -1,0 +1,216 @@
+/* تنسيق عام */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #252525;
+    margin: 0;
+    padding: 20px;
+    direction: ltr; /* تغيير الاتجاه إلى يسار-يمين */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* تنسيق حاوية البحث والزر */
+.search-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#search {
+    width: 60%;
+    max-width: 400px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ff0707;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: #333;
+    color: rgb(253, 253, 253);
+}
+
+#search:focus {
+    border-color: #1eff00;
+}
+
+#search::placeholder {
+    color: #ffffff;
+}
+
+/* تنسيق زر إعادة التعيين */
+.reset-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reset-button:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+}
+
+.reset-button:active {
+    transform: scale(0.95);
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* تنسيق الأعمدة */
+.column {
+    background: rgb(27, 27, 27);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.2s;
+}
+
+.column h2 {
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #444;
+    color: white;
+}
+
+.drop-zone.drag-over {
+    background-color: #3a3a3a;
+}
+
+/* تنسيق الشبكات */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+    min-height: 400px;
+    background-color: #181818;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* تنسيق العناصر بشكل عام */
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    margin: 4px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: grab;
+    transition: all 0.2s ease;
+    background-color: white;
+}
+
+.item:active {
+    cursor: grabbing;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.item img {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+}
+
+/* تنسيق العناصر في قسم المتبقية */
+.item-items {
+    background-color: #fff3e0;
+    border-left: 4px solid #ff0000;  /* تغيير من border-right إلى border-left */
+}
+
+/* تنسيق العناصر في قسم قيد العمل */
+.item-working {
+    background-color: #e3f2fd;
+    border-left: 4px solid #ff6600;  /* تغيير من border-right إلى border-left */
+}
+
+/* تنسيق العناصر في قسم المنتهية */
+.item-done {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;  /* تغيير من border-right إلى border-left */
+    opacity: 0.9;
+}
+
+.item-done span {
+    text-decoration: none;
+}
+
+/* تأثيرات إضافية */
+.item-done:hover {
+    background-color: #c8e6c9;
+}
+
+.item-working:hover {
+    background-color: #bbdef5;
+}
+
+.item-items:hover {
+    background-color: #ffe0b2;
+}
+
+/* تنسيق أرقام العدادات */
+#count-items, #count-working, #count-done {
+    color: #0a9b0a;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .grid {
+        min-height: 200px;
+    }
+}
+
+/* رسالة منبثقة */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* تحسين للشاشات الصغيرة */
+@media (max-width: 600px) {
+    .reset-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    #search {
+        width: 100%;
+    }
+}
